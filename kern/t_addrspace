@@ -1,0 +1,239 @@
+Binary file compile/ASST1/trap.o matches
+Binary file compile/ASST1/main.o matches
+Binary file compile/ASST1/uio.o matches
+Binary file compile/ASST1/lamebus_machdep.o matches
+Binary file compile/ASST1/runprogram.o matches
+Binary file compile/ASST1/synch.o matches
+Binary file compile/ASST1/thread.o matches
+Binary file compile/ASST1/console.o matches
+Binary file compile/ASST1/kernel matches
+Binary file compile/ASST1/syscall.o matches
+Binary file compile/ASST2/trap.o matches
+Binary file compile/ASST2/main.o matches
+Binary file compile/ASST2/uio.o matches
+Binary file compile/ASST2/lamebus_machdep.o matches
+Binary file compile/ASST2/runprogram.o matches
+Binary file compile/ASST2/synch.o matches
+Binary file compile/ASST2/thread.o matches
+Binary file compile/ASST2/console.o matches
+Binary file compile/ASST2/kernel matches
+Binary file compile/ASST2/syscall.o matches
+Binary file compile/ASST3/trap.o matches
+Binary file compile/ASST3/main.o matches
+Binary file compile/ASST3/uio.o matches
+Binary file compile/ASST3/lamebus_machdep.o matches
+Binary file compile/ASST3/runprogram.o matches
+Binary file compile/ASST3/synch.o matches
+Binary file compile/ASST3/thread.o matches
+Binary file compile/ASST3/console.o matches
+Binary file compile/ASST3/kernel matches
+Binary file compile/ASST3/syscall.o matches
+Binary file compile/ASST0/trap.o matches
+Binary file compile/ASST0/main.o matches
+Binary file compile/ASST0/uio.o matches
+Binary file compile/ASST0/lamebus_machdep.o matches
+Binary file compile/ASST0/runprogram.o matches
+Binary file compile/ASST0/synch.o matches
+Binary file compile/ASST0/thread.o matches
+Binary file compile/ASST0/console.o matches
+Binary file compile/ASST0/kernel matches
+Binary file compile/ASST0/syscall.o matches
+arch/mips/vm/dumbvm_dontuse.c:	as = curthread->t_addrspace;
+arch/mips/thread/cpu.c:	if (c->c_curthread->t_stack == NULL) {
+arch/mips/thread/cpu.c:		stackpointer = (vaddr_t) c->c_curthread->t_stack;
+arch/mips/syscall/syscall.c:	KASSERT(curthread->t_curspl == 0);
+arch/mips/syscall/syscall.c:	KASSERT(curthread->t_iplhigh_count == 0);
+arch/mips/syscall/syscall.c:	KASSERT(curthread->t_curspl == 0);
+arch/mips/syscall/syscall.c:	KASSERT(curthread->t_iplhigh_count == 0);
+arch/mips/locore/trap.c:	if (curthread != NULL && curthread->t_stack != NULL) {
+arch/mips/locore/trap.c:		KASSERT((vaddr_t)tf > (vaddr_t)curthread->t_stack);
+arch/mips/locore/trap.c:		KASSERT((vaddr_t)tf < (vaddr_t)(curthread->t_stack
+arch/mips/locore/trap.c:		old_in = curthread->t_in_interrupt;
+arch/mips/locore/trap.c:		curthread->t_in_interrupt = 1;
+arch/mips/locore/trap.c:		if (curthread->t_curspl == 0) {
+arch/mips/locore/trap.c:			KASSERT(curthread->t_curspl == 0);
+arch/mips/locore/trap.c:			KASSERT(curthread->t_iplhigh_count == 0);
+arch/mips/locore/trap.c:			curthread->t_curspl = IPL_HIGH;
+arch/mips/locore/trap.c:			curthread->t_iplhigh_count++;
+arch/mips/locore/trap.c:			KASSERT(curthread->t_curspl == IPL_HIGH);
+arch/mips/locore/trap.c:			KASSERT(curthread->t_iplhigh_count == 1);
+arch/mips/locore/trap.c:			curthread->t_iplhigh_count--;
+arch/mips/locore/trap.c:			curthread->t_curspl = 0;
+arch/mips/locore/trap.c:		curthread->t_in_interrupt = old_in;
+arch/mips/locore/trap.c:		KASSERT(curthread->t_curspl == 0);
+arch/mips/locore/trap.c:		KASSERT(curthread->t_iplhigh_count == 0);
+arch/mips/locore/trap.c:	    curthread->t_machdep.tm_badfaultfunc != NULL) {
+arch/mips/locore/trap.c:		tf->tf_epc = (vaddr_t) curthread->t_machdep.tm_badfaultfunc;
+arch/mips/locore/trap.c:	if (curthread->t_stack == NULL) {
+arch/mips/locore/trap.c:	cpustacks[curcpu->c_number] = (vaddr_t)curthread->t_stack + STACK_SIZE;
+arch/mips/locore/trap.c:	 *   (1) curthread->t_stack is corrupted, or
+arch/mips/locore/trap.c:	cpustacks[curcpu->c_number] = (vaddr_t)curthread->t_stack + STACK_SIZE;
+arch/mips/include/current.h: * make curcpu be curthread->t_cpu.
+arch/sys161/dev/lamebus_machdep.c:	KASSERT(curthread->t_curspl > 0);
+arch/sys161/dev/lamebus_machdep.c:	KASSERT(curthread->t_curspl > 0);
+lib/uio.c:		KASSERT(uio->uio_space == curthread->t_addrspace);
+lib/kprintf.c:		&& curthread->t_in_interrupt == false
+lib/kprintf.c:		&& curthread->t_iplhigh_count == 0;
+vm/copyinout.c:	longjmp(curthread->t_machdep.tm_copyjmp, 1);
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = copyfail;
+vm/copyinout.c:	result = setjmp(curthread->t_machdep.tm_copyjmp);
+vm/copyinout.c:		curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = copyfail;
+vm/copyinout.c:	result = setjmp(curthread->t_machdep.tm_copyjmp);
+vm/copyinout.c:		curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = copyfail;
+vm/copyinout.c:	result = setjmp(curthread->t_machdep.tm_copyjmp);
+vm/copyinout.c:		curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = copyfail;
+vm/copyinout.c:	result = setjmp(curthread->t_machdep.tm_copyjmp);
+vm/copyinout.c:		curthread->t_machdep.tm_badfaultfunc = NULL;
+vm/copyinout.c:	curthread->t_machdep.tm_badfaultfunc = NULL;
+thread/spl.c: * curthread->t_iplhigh_count is used to track this.
+thread/synch.c:        KASSERT(curthread->t_in_interrupt == false);
+thread/thread.c:		thread->t_process->p_pid_parent = curthread->t_process->p_pid_self;
+thread/thread.c:		 * Leave c->c_curthread->t_stack NULL for the boot
+thread/thread.c:		/*c->c_curthread->t_stack = ... */
+thread/thread.c:		c->c_curthread->t_stack = kmalloc(STACK_SIZE);
+thread/thread.c:		if (c->c_curthread->t_stack == NULL) {
+thread/thread.c:	c->c_curthread->t_cpu = c;
+thread/thread.c:	curthread->t_cpu = curcpu;
+thread/thread.c:	newthread->t_cpu = curthread->t_cpu;
+thread/thread.c:	if (curthread->t_cwd != NULL) {
+thread/thread.c:		VOP_INCREF(curthread->t_cwd);
+thread/thread.c:		newthread->t_cwd = curthread->t_cwd;
+thread/thread.c:		newthread->ft[i] = curthread->ft[i];
+thread/thread.c:		if ( curthread->ft[i] !=0)
+thread/thread.c:			//curthread->ft[i]->ref_count++; // Not required as ft is a pointer and both
+thread/thread.c:	DEBUGASSERT(curthread->t_cpu == curcpu->c_self);
+thread/thread.c:		if (curthread->ft[i] !=  NULL)
+thread/thread.c:	//if(curthread->t_process->p_pid_parent > 0 && processtable[(int)curthread->t_process->p_pid_parent] != NULL)
+thread/thread.c:		V(curthread->t_process->p_exitsem);
+thread/thread.c:	KASSERT(!curthread->t_in_interrupt);
+syscall/process.c:		if(curthread->t_process != NULL)
+syscall/process.c:			//*retval = *curthread->t_process->p_pid_self;
+syscall/process.c:			memcpy(retval, &curthread->t_process->p_pid_self, sizeof(pid_t));
+syscall/process.c:		if(curthread->t_process != NULL)
+syscall/process.c:			//*retval = *curthread->t_process->p_pid_parent;
+syscall/process.c:			memcpy(retval, &curthread->t_process->p_pid_parent, sizeof(pid_t));
+syscall/process.c:	if(pid == curthread->t_process->p_pid_self)
+syscall/process.c:	if(pid == curthread->t_process->p_pid_parent)
+syscall/process.c:		if(curthread->t_process->p_pid_parent == childprocess->p_pid_parent)
+syscall/process.c:	if(curthread->t_process != NULL)
+syscall/process.c:		if(!curthread->t_process->p_exited)
+syscall/process.c:			curthread->t_process->p_exitcode = _MKWAIT_EXIT(exitstatus);
+syscall/process.c:			curthread->t_process->p_exited = true;
+syscall/process.c:	parent = curthread->t_process;
+syscall/process.c:	curthread->t_addrspace = child_addrspce;
+syscall/process.c:	as_activate(curthread->t_addrspace);
+syscall/process.c:	//KASSERT(curthread->t_addrspace == NULL);
+syscall/process.c:	curthread->t_addrspace = as_create();
+syscall/process.c:	if (curthread->t_addrspace==NULL) {
+syscall/process.c:	as_activate(curthread->t_addrspace);
+syscall/process.c:		/* thread_exit destroys curthread->t_addrspace */
+syscall/process.c:	result = as_define_stack(curthread->t_addrspace, &stackptr);
+syscall/process.c:		/* thread_exit destroys curthread->t_addrspace */
+syscall/loadelf.c:	u.uio_space = curthread->t_addrspace;
+syscall/loadelf.c:		result = as_define_region(curthread->t_addrspace,
+syscall/loadelf.c:	result = as_prepare_load(curthread->t_addrspace);
+syscall/loadelf.c:	result = as_complete_load(curthread->t_addrspace);
+syscall/file_syscalls.c:		if (curthread->ft[i] == NULL)
+syscall/file_syscalls.c:			curthread->ft[i] = kmalloc(sizeof(struct fTable));
+syscall/file_syscalls.c:			if (curthread->ft[i] == NULL)
+syscall/file_syscalls.c:			curthread->ft[i]->lock = lock_create(curthread->t_name);
+syscall/file_syscalls.c:			if (curthread->ft[i]->lock == NULL)
+syscall/file_syscalls.c:				kfree(curthread->ft[i]);
+syscall/file_syscalls.c:				curthread->ft[i] = NULL;
+syscall/file_syscalls.c:			curthread->ft[i]->offset=0;
+syscall/file_syscalls.c:			curthread->ft[i]->ref_count=(curthread->ft[i]->ref_count) + 1;
+syscall/file_syscalls.c:			curthread->ft[i]->status = flags;
+syscall/file_syscalls.c:				lock_destroy(curthread->ft[i]->lock);
+syscall/file_syscalls.c:				kfree(curthread->ft[i]);
+syscall/file_syscalls.c:				curthread->ft[i] = NULL;
+syscall/file_syscalls.c:				lock_destroy(curthread->ft[i]->lock);
+syscall/file_syscalls.c:				kfree(curthread->ft[i]);
+syscall/file_syscalls.c:				curthread->ft[i] = NULL;
+syscall/file_syscalls.c:			vfs_ret=vfs_open((char *)filename,flags,0664,&(curthread->ft[i]->vn));
+syscall/file_syscalls.c:				lock_destroy(curthread->ft[i]->lock);
+syscall/file_syscalls.c:				kfree(curthread->ft[i]);
+syscall/file_syscalls.c:				curthread->ft[i] = NULL;
+syscall/file_syscalls.c:	if (curthread->ft[fd] == NULL)
+syscall/file_syscalls.c:	lock_acquire(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	curthread->ft[fd]->ref_count=(curthread->ft[fd]->ref_count)-1;
+syscall/file_syscalls.c:	if(curthread->ft[fd]->ref_count == 0)
+syscall/file_syscalls.c:		vfs_close(curthread->ft[fd]->vn);
+syscall/file_syscalls.c:		lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:		lock_destroy(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:		kfree(curthread->ft[fd]);
+syscall/file_syscalls.c:		curthread->ft[fd]=NULL;
+syscall/file_syscalls.c:		lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:		curthread->ft[fd]=NULL;
+syscall/file_syscalls.c:	if (curthread->ft[fd] == NULL)
+syscall/file_syscalls.c:	lock_acquire(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	uio.uio_offset = curthread->ft[fd]->offset;
+syscall/file_syscalls.c:	uio.uio_space = curthread->t_addrspace;
+syscall/file_syscalls.c:	if((ret = VOP_READ(curthread->ft[fd]->vn,&uio))!=0)
+syscall/file_syscalls.c:	int diff = uio.uio_offset - curthread->ft[fd]->offset;
+syscall/file_syscalls.c:	curthread->ft[fd]->offset=uio.uio_offset;
+syscall/file_syscalls.c:	lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	if (curthread->ft[fd] == NULL)
+syscall/file_syscalls.c:	lock_acquire(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	uio.uio_offset = curthread->ft[fd]->offset;
+syscall/file_syscalls.c:	uio.uio_space = curthread->t_addrspace;
+syscall/file_syscalls.c:	if((ret = VOP_WRITE(curthread->ft[fd]->vn,&uio))!=0)
+syscall/file_syscalls.c:	int diff = uio.uio_offset - curthread->ft[fd]->offset ;
+syscall/file_syscalls.c:	curthread->ft[fd]->offset=uio.uio_offset;
+syscall/file_syscalls.c:	lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	if (curthread->ft[fd] == NULL)
+syscall/file_syscalls.c:	//kprintf("curthread->ft[fd] == NULL\n");
+syscall/file_syscalls.c:	lock_acquire(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	VOP_STAT(curthread->ft[fd]->vn,&eoFILE);
+syscall/file_syscalls.c:		nPos = curthread->ft[fd]->offset+pos;
+syscall/file_syscalls.c:		lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	*err = VOP_TRYSEEK(curthread->ft[fd]->vn,nPos);
+syscall/file_syscalls.c:		lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	curthread->ft[fd]->offset = nPos;
+syscall/file_syscalls.c:	lock_release(curthread->ft[fd]->lock);
+syscall/file_syscalls.c:	return curthread->ft[fd]->offset;
+syscall/file_syscalls.c:				nfile_desc > OPEN_MAX || curthread->ft[ofile_desc] == NULL || curthread->ft[nfile_desc] == NULL)
+syscall/file_syscalls.c:		if (curthread->ft[ofile_desc] == curthread->ft[nfile_desc] || ofile_desc == nfile_desc)
+syscall/file_syscalls.c:		if (curthread->ft[nfile_desc] != NULL)
+syscall/file_syscalls.c:		curthread->ft[nfile_desc] = curthread->ft[ofile_desc];
+syscall/file_syscalls.c:		lock_acquire(curthread->ft[nfile_desc]->lock);
+syscall/file_syscalls.c:		curthread->ft[nfile_desc]->ref_count++;
+syscall/file_syscalls.c:		lock_release(curthread->ft[nfile_desc]->lock);
+syscall/runprogram.c:	curthread->ft[STDIN_FILENO]=input;
+syscall/runprogram.c:	curthread->ft[STDOUT_FILENO]=output;
+syscall/runprogram.c:	curthread->ft[STDERR_FILENO]=error;
+syscall/runprogram.c:	KASSERT(curthread->t_addrspace == NULL);
+syscall/runprogram.c:	curthread->t_addrspace = as_create();
+syscall/runprogram.c:	if (curthread->t_addrspace==NULL) {
+syscall/runprogram.c:	as_activate(curthread->t_addrspace);
+syscall/runprogram.c:		/* thread_exit destroys curthread->t_addrspace */
+syscall/runprogram.c:	result = as_define_stack(curthread->t_addrspace, &stackptr);
+syscall/runprogram.c:		/* thread_exit destroys curthread->t_addrspace */
+synchprobs/drivers.c:	kprintf("%s starting\n", curthread->t_name);
+synchprobs/drivers.c:	kprintf("%s ending\n", curthread->t_name);
+synchprobs/drivers.c:	kprintf("%s starting\n", curthread->t_name);
+synchprobs/drivers.c:	kprintf("%s ending\n", curthread->t_name);
+synchprobs/drivers.c:	kprintf("%s starting\n", curthread->t_name);
+synchprobs/drivers.c:	kprintf("%s ending\n", curthread->t_name);
+synchprobs/drivers.c:	kprintf("%s in quadrant %d\n", curthread->t_name, quadrant);
+synchprobs/drivers.c:	kprintf("%s left the intersection\n", curthread->t_name);
+startup/main.c:	KASSERT(curthread->t_curspl > 0);
+startup/main.c:	KASSERT(curthread->t_curspl == 0);
+vfs/vfscwd.c: * We do not synchronize curthread->t_cwd, because it belongs exclusively
+vfs/vfscwd.c:	if (curthread->t_cwd!=NULL) {
+vfs/vfscwd.c:		VOP_INCREF(curthread->t_cwd);
+vfs/vfscwd.c:		*ret = curthread->t_cwd;
+vfs/vfscwd.c:	old = curthread->t_cwd;
+vfs/vfscwd.c:	curthread->t_cwd = dir;
+vfs/vfscwd.c:	old = curthread->t_cwd;
+vfs/vfscwd.c:	curthread->t_cwd = NULL;
+include/current.h:#define curcpu curthread->t_cpu
+dev/generic/console.c:	else if (curthread->t_in_interrupt || curthread->t_iplhigh_count > 0) {
+dev/generic/console.c:	else if (curthread->t_in_interrupt || curthread->t_iplhigh_count > 0) {
+dev/generic/console.c:	else if (curthread->t_in_interrupt || curthread->t_iplhigh_count > 0) {
+dev/generic/console.c:	KASSERT(!curthread->t_in_interrupt && curthread->t_iplhigh_count == 0);

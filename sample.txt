@@ -1,0 +1,38 @@
+//kprintf("Inside waitpid\n");
+	/*Argument checking*/
+	// if child process does not exist
+	if(pid < 1)
+		return EINVAL;
+
+	if(childprocess == NULL)
+		return EINVAL;
+
+	if(exitcode == NULL)
+		return EINVAL;
+	if(exitcode == (void *)0x80000000) // Kernel pointer check
+		return EFAULT;
+	if(exitcode == (void *)0x40000000)  // Invalide pointer check
+		return EFAULT;
+
+
+	// if exitcode alignment is not proper ? DOUBT
+	if(sizeof(exitcode) != sizeof(int32_t))
+		return EFAULT;
+
+	// if flags are not proper
+	if(flags != WNOHANG && flags != WUNTRACED)
+		return EINVAL;
+
+
+
+
+	// copy this for improper alignment badwaitpid
+	result = copycheck(usersrc, len, &stoplen);
+			if (result) {
+				return result;
+			}
+			if (stoplen != len) {
+				/* Single block, can't legally truncate it. */
+				return EFAULT;
+			}
+		
